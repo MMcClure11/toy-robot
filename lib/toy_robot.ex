@@ -19,8 +19,7 @@ defmodule ToyRobot do
     %ToyRobot.Position{x: x, y: y, facing: facing}
   end
 
-  def report(robot) do 
-    %ToyRobot.Position{x: x, y: y, facing: facing} = robot
+  def report(%ToyRobot.Position{x: x, y: y, facing: facing}) do 
     {x, y, facing}
   end
 end
