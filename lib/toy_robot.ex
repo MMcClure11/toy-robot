@@ -4,15 +4,14 @@ defmodule ToyRobot do
   """
 
   @doc """
-  Hello world.
 
   ## Examples
 
-      iex> ToyRobot.hello()
-      :world
+      iex> ToyRobot.place()
+      %ToyRobot.Position{}
 
   """
-  def hello do
-    :world
+  def place do
+    %ToyRobot.Position{}
   end
 end
