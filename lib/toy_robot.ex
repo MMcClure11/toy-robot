@@ -45,4 +45,8 @@ defmodule ToyRobot do
     %ToyRobot.Position{robot | y: y - 1}
   end
 
+  def move(%ToyRobot.Position{x: x, y: _y, facing: :west} = robot) do 
+    %ToyRobot.Position{robot | x: x - 1}
+  end
+
 end
