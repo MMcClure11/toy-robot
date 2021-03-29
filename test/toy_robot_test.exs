@@ -64,6 +64,14 @@ defmodule ToyRobotTest do
     |> ToyRobot.move
     |> ToyRobot.report
 
-    assert position == { 1, 0, :east}
+    assert position == {1, 0, :east}
+  end
+
+  test "moving robot down if it is facing to the south" do 
+    position = ToyRobot.place(4, 4, :south)
+    |> ToyRobot.move
+    |> ToyRobot.report
+
+    assert position == {4, 3, :south}
   end
 end
