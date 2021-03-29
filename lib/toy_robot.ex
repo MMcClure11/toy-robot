@@ -23,13 +23,13 @@ defmodule ToyRobot do
     {x, y, facing}
   end
 
+  @directions_to_the_right %{north: :east, east: :south, south: :west, west: :north}
   def right(%ToyRobot.Position{facing: facing} = robot) do 
-    directions_to_the_right = %{north: :east, east: :south, south: :west, west: :north}
-    %ToyRobot.Position{robot | facing: directions_to_the_right[facing]}
+    %ToyRobot.Position{robot | facing: @directions_to_the_right[facing]}
   end
 
+  @directions_to_the_left Enum.map(@directions_to_the_right, fn {from, to} -> {to, from} end)
   def left(%ToyRobot.Position{facing: facing} = robot) do
-    directions_to_the_left = %{north: :west, west: :south, south: :east, east: :north}
-    %ToyRobot.Position{robot | facing: directions_to_the_left[facing]}
+    %ToyRobot.Position{robot | facing: @directions_to_the_left[facing]}
   end
 end
