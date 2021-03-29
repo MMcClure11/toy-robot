@@ -32,4 +32,9 @@ defmodule ToyRobot do
   def left(%ToyRobot.Position{facing: facing} = robot) do
     %ToyRobot.Position{robot | facing: @directions_to_the_left[facing]}
   end
+
+  def move(%ToyRobot.Position{x: _x, y: y, facing: :north} = robot) do 
+    %ToyRobot.Position{robot | y: y + 1}
+  end
+
 end
