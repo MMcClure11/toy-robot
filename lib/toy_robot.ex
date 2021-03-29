@@ -1,4 +1,6 @@
 defmodule ToyRobot do
+  @table_top_x 4
+  @table_top_y 4
   @moduledoc """
   Documentation for `ToyRobot`.
   """
@@ -33,7 +35,7 @@ defmodule ToyRobot do
     %ToyRobot.Position{robot | facing: @directions_to_the_left[facing]}
   end
 
-  def move(%ToyRobot.Position{x: _x, y: y, facing: :north} = robot) do 
+  def move(%ToyRobot.Position{x: _x, y: y, facing: :north} = robot) when y < @table_top_y do 
     %ToyRobot.Position{robot | y: y + 1}
   end
 
@@ -48,5 +50,7 @@ defmodule ToyRobot do
   def move(%ToyRobot.Position{x: x, y: _y, facing: :west} = robot) do 
     %ToyRobot.Position{robot | x: x - 1}
   end
+
+  def move(robot), do: robot
 
 end
