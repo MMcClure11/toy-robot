@@ -39,7 +39,7 @@ defmodule ToyRobot do
     %ToyRobot.Position{robot | y: y + 1}
   end
 
-  def move(%ToyRobot.Position{x: x, y: _y, facing: :east} = robot) do
+  def move(%ToyRobot.Position{x: x, y: _y, facing: :east} = robot) when x < @table_top_x do
     %ToyRobot.Position{robot | x: x + 1}
   end
 
