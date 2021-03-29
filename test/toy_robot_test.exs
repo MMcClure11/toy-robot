@@ -36,4 +36,18 @@ defmodule ToyRobotTest do
     |> ToyRobot.report
     assert position == {0, 0, :west}
   end
+
+  test "rotating the robot 3 times to the right is the same as rotating it to the left once" do
+    right_position = ToyRobot.place(0, 0, :north)
+    |> ToyRobot.right
+    |> ToyRobot.right
+    |> ToyRobot.right
+    |> ToyRobot.report
+
+    left_position = ToyRobot.place(0, 0, :north)
+    |> ToyRobot.left
+    |> ToyRobot.report
+
+    assert right_position == left_position
+  end
 end
