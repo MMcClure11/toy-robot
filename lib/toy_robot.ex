@@ -1,20 +1,21 @@
 defmodule ToyRobot do
   @table_top_x 4
   @table_top_y 4
+
   @moduledoc """
   Documentation for `ToyRobot`.
   """
 
   @doc """
+  Places the robot to the default position
 
   ## Examples
 
-      iex> ToyRobot.place()
-      %ToyRobot.Position{}
-
+      iex> ToyRobot.place
+      {:ok, %ToyRobot.Position{facing: :north, x: 0, y: 0}}
   """
   def place() do
-    %ToyRobot.Position{x: 0, y: 0, facing: :north}
+    {:ok, %ToyRobot.Position{}}
   end
 
   def place(x, y, facing) do
