@@ -6,7 +6,10 @@ defmodule ToyRobot.CLI do
   end
 
   @commands %{
-    "quit" => "Quits the simulator"
+    "quit" => "Quits the simulator",
+    "place" => "format: \"place [X,Y,F]\". " <>
+      "Places the Robot into X,Y coordinate facing F (Default is 0,0,North). " <>
+      "Where facing is: North, South, East, or West."
   }
 
   defp receive_command do
@@ -20,6 +23,11 @@ defmodule ToyRobot.CLI do
     IO.puts "\nConnection lost"
   end
 
+  defp execute_command("place") do 
+    ToyRobot.place
+    receive_command
+  end
+
   defp execute_command(_unknown) do
     IO.puts("\nInvalid command. I don't know what to do.")
     print_help_message()
@@ -28,7 +36,7 @@ defmodule ToyRobot.CLI do
   end
 
   defp print_help_message do
-    IO.puts("\nThe simulator supports following commands:\n")
+    IO.puts("\nThe simulator supports the following commands:\n")
     @commands
     |> Enum.map(fn({command, description}) -> IO.puts("  #{command} - #{description}") end)
   end
