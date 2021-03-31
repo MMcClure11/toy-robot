@@ -18,6 +18,14 @@ defmodule ToyRobot do
     {:ok, %ToyRobot.Position{}}
   end
 
+  @doc """
+  Places the robot in the specified position
+
+  Examples:
+    iex> ToyRobot.place(1, 2, :south)
+    %ToyRobot.Position{x: 1, y: 2, facing: :south}
+  """
+
   def place(x, y, facing) do
     %ToyRobot.Position{x: x, y: y, facing: facing}
   end
