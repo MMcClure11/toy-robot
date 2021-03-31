@@ -14,7 +14,7 @@ defmodule ToyRobot do
       iex> ToyRobot.place
       {:ok, %ToyRobot.Position{facing: :north, x: 0, y: 0}}
   """
-  def place() do
+  def place do
     {:ok, %ToyRobot.Position{}}
   end
 
@@ -25,6 +25,9 @@ defmodule ToyRobot do
     iex> ToyRobot.place(1, 2, :south)
     {:ok, %ToyRobot.Position{x: 1, y: 2, facing: :south}}
   """
+  def place(x, y, _facing) when x < 0 or y < 0 or x > @table_top_x or y > @table_top_y do 
+    {:failure, "Invalid position"}
+  end
 
   def place(x, y, facing) do
     {:ok, %ToyRobot.Position{x: x, y: y, facing: facing}}
