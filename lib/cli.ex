@@ -20,6 +20,13 @@ defmodule ToyRobot.CLI do
     IO.puts "\nConnection lost"
   end
 
+  defp execute_command(_unknown) do
+    IO.puts("\nInvalid command. I don't know what to do.")
+    print_help_message()
+
+    receive_command()
+  end
+
   defp print_help_message do
     IO.puts("\nThe simulator supports following commands:\n")
     @commands
