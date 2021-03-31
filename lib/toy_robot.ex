@@ -30,6 +30,16 @@ defmodule ToyRobot do
     %ToyRobot.Position{x: x, y: y, facing: facing}
   end
 
+  @doc """
+  Procides the report of the robot's current position
+
+  Examples:
+    iex> robot = ToyRobot.place(2, 3, :west)
+    iex> ToyRobot.report(robot)
+    {2, 3, :west}
+
+  """
+
   def report(%ToyRobot.Position{x: x, y: y, facing: facing}) do 
     {x, y, facing}
   end
