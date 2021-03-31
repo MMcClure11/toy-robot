@@ -3,7 +3,7 @@ defmodule ToyRobotTest do
   doctest ToyRobot
 
   test "rotates the robot to the right" do 
-    robot = ToyRobot.place(0, 0, :north)
+    {:ok, robot} = ToyRobot.place(0, 0, :north)
     position = robot
     |> ToyRobot.right
     |> ToyRobot.report
@@ -11,7 +11,7 @@ defmodule ToyRobotTest do
   end
 
   test "rotates the robot to the right twice" do
-    robot = ToyRobot.place(0, 0, :north)
+    {:ok, robot} = ToyRobot.place(0, 0, :north)
     position = robot
     |> ToyRobot.right
     |> ToyRobot.right
@@ -20,20 +20,23 @@ defmodule ToyRobotTest do
   end
 
   test "rotates the robot to the left" do 
-    position = ToyRobot.place(0, 0, :north)
+    {:ok, robot} = ToyRobot.place(0, 0, :north)
+    position = robot
     |> ToyRobot.left
     |> ToyRobot.report
     assert position == {0, 0, :west}
   end
 
   test "rotating the robot 3 times to the right is the same as rotating it to the left once" do
-    right_position = ToyRobot.place(0, 0, :north)
+    {:ok, robot} = ToyRobot.place(0, 0, :north)
+    right_position = robot
     |> ToyRobot.right
     |> ToyRobot.right
     |> ToyRobot.right
     |> ToyRobot.report
 
-    left_position = ToyRobot.place(0, 0, :north)
+    {:ok, robot} = ToyRobot.place(0, 0, :north)
+    left_position = robot
     |> ToyRobot.left
     |> ToyRobot.report
 
@@ -41,7 +44,8 @@ defmodule ToyRobotTest do
   end
 
   test "moving robot up if it is facing to the north" do 
-    position = ToyRobot.place(0, 0 , :north)
+    {:ok, robot} = ToyRobot.place(0, 0 , :north)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -49,7 +53,8 @@ defmodule ToyRobotTest do
   end
 
   test "moving robot right if it is facing to the east" do 
-    position = ToyRobot.place(0, 0, :east)
+    {:ok, robot} = ToyRobot.place(0, 0, :east)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -57,7 +62,8 @@ defmodule ToyRobotTest do
   end
 
   test "moving robot down if it is facing to the south" do 
-    position = ToyRobot.place(4, 4, :south)
+    {:ok, robot} = ToyRobot.place(4, 4, :south)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -65,7 +71,8 @@ defmodule ToyRobotTest do
   end
 
   test "moving robot left if it is facing to the west" do 
-    position = ToyRobot.place(4, 4, :west)
+    {:ok, robot} = ToyRobot.place(4, 4, :west)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -73,7 +80,8 @@ defmodule ToyRobotTest do
   end
 
   test "prevent the robot from falling off to the north" do 
-    position = ToyRobot.place(4, 4, :north)
+    {:ok, robot} = ToyRobot.place(4, 4, :north)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -81,7 +89,8 @@ defmodule ToyRobotTest do
   end
 
   test "prevent the robot from falling off to the east" do 
-    position = ToyRobot.place(4, 4, :east)
+    {:ok, robot} = ToyRobot.place(4, 4, :east)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -89,7 +98,8 @@ defmodule ToyRobotTest do
   end
 
   test "prevent the robot from falling off to the south" do 
-    position = ToyRobot.place(0, 0, :south)
+    {:ok, robot} = ToyRobot.place(0, 0, :south)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 
@@ -97,7 +107,8 @@ defmodule ToyRobotTest do
   end
 
   test "prevent the robot from falling off to the west" do 
-    position = ToyRobot.place(0, 0, :west)
+    {:ok, robot} = ToyRobot.place(0, 0, :west)
+    position = robot
     |> ToyRobot.move
     |> ToyRobot.report
 

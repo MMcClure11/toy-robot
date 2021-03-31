@@ -23,31 +23,31 @@ defmodule ToyRobot do
 
   Examples:
     iex> ToyRobot.place(1, 2, :south)
-    %ToyRobot.Position{x: 1, y: 2, facing: :south}
+    {:ok, %ToyRobot.Position{x: 1, y: 2, facing: :south}}
   """
 
   def place(x, y, facing) do
-    %ToyRobot.Position{x: x, y: y, facing: facing}
+    {:ok, %ToyRobot.Position{x: x, y: y, facing: facing}}
   end
 
   @doc """
   Procides the report of the robot's current position.
 
   Examples:
-    iex> robot = ToyRobot.place(2, 3, :west)
+    iex> {:ok, robot} = ToyRobot.place(2, 3, :west)
     iex> ToyRobot.report(robot)
     {2, 3, :west}
 
   """
 
-  def report(%ToyRobot.Position{x: x, y: y, facing: facing}) do 
+  def report(%ToyRobot.Position{x: x, y: y, facing: facing} = _robot) do 
     {x, y, facing}
   end
 
+  @directions_to_the_right %{north: :east, east: :south, south: :west, west: :north}
   @doc """
   Rotates the robot to the right.
   """
-  @directions_to_the_right %{north: :east, east: :south, south: :west, west: :north}
   def right(%ToyRobot.Position{facing: facing} = robot) do 
     %ToyRobot.Position{robot | facing: @directions_to_the_right[facing]}
   end
@@ -61,7 +61,7 @@ defmodule ToyRobot do
   end
 
   @doc """
-  Moves the robot to the north, without permitting it to fall.
+  Moves the robot in the specified argument direction, without permitting it to fall.
   """
   def move(%ToyRobot.Position{x: _x, y: y, facing: :north} = robot) when y < @table_top_y do 
     %ToyRobot.Position{robot | y: y + 1}
