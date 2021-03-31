@@ -23,3 +23,6 @@ in mix.exs add
   $ mix escript.build
   to run the cli
   $ ./toy_robot
+
+  when making changes to the CLI must rebuild the escript
+  $ mix escript.build && ./toy_robot
