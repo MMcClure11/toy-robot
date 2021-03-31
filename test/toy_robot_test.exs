@@ -6,6 +6,10 @@ defmodule ToyRobotTest do
     assert ToyRobot.place(-1, -1, :north) == {:failure, "Invalid position"}
   end
 
+  test "does not place the robot with an invalid facing direction" do 
+    assert ToyRobot.place(0, 0, :north_west) == {:failure, "Invalid facing direction"}
+  end
+
   test "rotates the robot to the right" do 
     {:ok, robot} = ToyRobot.place(0, 0, :north)
     position = robot

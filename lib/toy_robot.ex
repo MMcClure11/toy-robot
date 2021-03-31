@@ -29,6 +29,10 @@ defmodule ToyRobot do
     {:failure, "Invalid position"}
   end
 
+  def place(_x, _y, facing) when facing not in [:north, :east, :south, :west] do 
+    {:failure, "Invalid facing direction"}
+  end
+
   def place(x, y, facing) do
     {:ok, %ToyRobot.Position{x: x, y: y, facing: facing}}
   end
