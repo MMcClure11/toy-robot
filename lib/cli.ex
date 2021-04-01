@@ -13,17 +13,18 @@ defmodule ToyRobot.CLI do
   }
 
   defp receive_command do
-    IO.gets("\n> ")
+    IO.gets("> ")
     |> String.trim
     |> String.downcase
+    |> String.split(" ")
     |> execute_command
   end
 
-  defp execute_command("quit") do
+  defp execute_command(["quit"]) do
     IO.puts "\nConnection lost"
   end
 
-  defp execute_command("place") do 
+  defp execute_command(["place"]) do 
     ToyRobot.place
     receive_command
   end
