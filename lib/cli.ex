@@ -11,7 +11,8 @@ defmodule ToyRobot.CLI do
       "Places the Robot into X,Y coordinate facing F (Default is 0,0,North). " <>
       "Where facing is: North, South, East, or West.",
     "report" => "The Toy Robot reports its position",
-    "left" => "Rotates teh robot to the left"
+    "left" => "Rotates the robot to the left",
+    "right" => "Rotates the robot to the right"
   }
 
   defp receive_command(robot \\ nil) do
@@ -44,6 +45,12 @@ defmodule ToyRobot.CLI do
     robot
     |> ToyRobot.left
     |> receive_command()
+  end
+
+  defp execute_command(["right"], robot) do 
+    robot
+    |> ToyRobot.right
+    |> receive_command
   end
 
   defp execute_command(["report"], nil) do 
