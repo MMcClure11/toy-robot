@@ -30,3 +30,17 @@ in mix.exs add
   $ ./toy_robot
   To see stand alone instructions
   $ ./toy_robot --help
+
+  To create documentation:
+  defp deps do
+    [
+      {:ex_doc, "~> 0.12"} <--New Line
+      # {:dep_from_hexpm, "~> 0.3.0"},
+      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+    ]
+  end 
+
+  $ mix deps.get
+  $ mix docs
+  $ cd doc
+  $ open index.html

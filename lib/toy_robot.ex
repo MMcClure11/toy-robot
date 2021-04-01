@@ -23,14 +23,14 @@ defmodule ToyRobot do
   but prevents it from being places outside of the table and from facing an invalid direction.
 
   Examples:
-    iex> ToyRobot.place(1, 2, :south)
-    {:ok, %ToyRobot.Position{x: 1, y: 2, facing: :south}}
+      iex> ToyRobot.place(1, 2, :south)
+      {:ok, %ToyRobot.Position{x: 1, y: 2, facing: :south}}
 
-    iex> ToyRobot.place(-1, -1, :north)
-    {:failure, "Invalid position"}
+      iex> ToyRobot.place(-1, -1, :north)
+      {:failure, "Invalid position"}
 
-    iex> ToyRobot.place(0, 0, :north_east)
-    {:failure, "Invalid facing direction"}
+      iex> ToyRobot.place(0, 0, :north_east)
+      {:failure, "Invalid facing direction"}
   """
   def place(x, y, _facing) when x < 0 or y < 0 or x > @table_top_x or y > @table_top_y do 
     {:failure, "Invalid position"}
@@ -48,9 +48,9 @@ defmodule ToyRobot do
   Procides the report of the robot's current position.
 
   Examples:
-    iex> {:ok, robot} = ToyRobot.place(2, 3, :west)
-    iex> ToyRobot.report(robot)
-    {2, 3, :west}
+      iex> {:ok, robot} = ToyRobot.place(2, 3, :west)
+      iex> ToyRobot.report(robot)
+      {2, 3, :west}
 
   """
 
