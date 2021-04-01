@@ -9,31 +9,57 @@ defmodule ToyRobot.CLI do
     "quit" => "Quits the simulator",
     "place" => "format: \"place [X,Y,F]\". " <>
       "Places the Robot into X,Y coordinate facing F (Default is 0,0,North). " <>
-      "Where facing is: North, South, East, or West."
+      "Where facing is: North, South, East, or West.",
+    "report" => "The Toy Robot reports its position"
   }
 
-  defp receive_command do
+  defp receive_command(robot \\ nil) do
     IO.gets("> ")
     |> String.trim
     |> String.downcase
     |> String.split(" ")
-    |> execute_command
+    |> execute_command(robot)
   end
 
-  defp execute_command(["quit"]) do
-    IO.puts "\nConnection lost"
+  defp execute_command(["place"], _robot) do 
+    {:ok, robot} = ToyRobot.place
+    robot
+    |> receive_command
   end
 
-  defp execute_command(["place" | params]) do
+  defp execute_command(["place" | params], _robot) do
     {x, y, facing} = process_place_params(params)
 
     case ToyRobot.place(x, y, facing) do
-      {:ok, _robot} -> 
-        receive_command()
+      {:ok, robot} -> 
+        receive_command(robot)
       {:failure, message} ->
         IO.puts message
         receive_command()
     end
+  end
+
+  defp execute_command(["report"], nil) do 
+    IO.puts "The robot has not been placed yet."
+    receive_command()
+  end 
+
+  defp execute_command(["report"], robot) do 
+    {x, y, facing} = robot 
+    |> ToyRobot.report
+    IO.puts String.upcase("#{x}, #{y}, #{facing}")
+    receive_command(robot)
+  end
+
+  defp execute_command(["quit"], _robot) do
+    IO.puts "\nConnection lost"
+  end
+
+  defp execute_command(_unknown, robot) do
+    IO.puts("\nInvalid command. I don't know what to do.")
+    print_help_message()
+
+    receive_command()
   end
 
   defp process_place_params(params) do 
@@ -42,13 +68,6 @@ defmodule ToyRobot.CLI do
     |> String.split(",")
     |> Enum.map(&String.trim/1)
     {String.to_integer(x), String.to_integer(y), String.to_atom(facing)}
-  end
-
-  defp execute_command(_unknown) do
-    IO.puts("\nInvalid command. I don't know what to do.")
-    print_help_message()
-
-    receive_command()
   end
 
   defp print_help_message do
