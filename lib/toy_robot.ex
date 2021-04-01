@@ -1,6 +1,6 @@
 defmodule ToyRobot do
-  @table_top_x 4
-  @table_top_y 4
+  @table_top_x 5
+  @table_top_y 5
 
   @moduledoc """
   Documentation for `ToyRobot`.
