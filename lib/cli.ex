@@ -24,9 +24,24 @@ defmodule ToyRobot.CLI do
     IO.puts "\nConnection lost"
   end
 
-  defp execute_command(["place"]) do 
-    ToyRobot.place
-    receive_command
+  defp execute_command(["place" | params]) do
+    {x, y, facing} = process_place_params(params)
+
+    case ToyRobot.place(x, y, facing) do
+      {:ok, _robot} -> 
+        receive_command()
+      {:failure, message} ->
+        IO.puts message
+        receive_command()
+    end
+  end
+
+  defp process_place_params(params) do 
+    [x, y, facing] = params
+    |> Enum.join(" ")
+    |> String.split(",")
+    |> Enum.map(&String.trim/1)
+    {String.to_integer(x), String.to_integer(y), String.to_atom(facing)}
   end
 
   defp execute_command(_unknown) do
