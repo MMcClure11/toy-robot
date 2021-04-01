@@ -1,5 +1,5 @@
 defmodule ToyRobot.CLI do
-  def main(_args) do
+  def main(_) do
     IO.puts("Welcome to the Toy Robot simulator!")
     print_help_message()
     receive_command()
@@ -45,7 +45,7 @@ defmodule ToyRobot.CLI do
   defp execute_command(["left"], robot) do 
     robot
     |> ToyRobot.left
-    |> receive_command()
+    |> receive_command
   end
 
   defp execute_command(["right"], robot) do 
@@ -76,10 +76,9 @@ defmodule ToyRobot.CLI do
     IO.puts "\nConnection lost"
   end
 
-  defp execute_command(_unknown, robot) do
+  defp execute_command(_unknown, _robot) do
     IO.puts("\nInvalid command. I don't know what to do.")
     print_help_message()
-
     receive_command()
   end
 
