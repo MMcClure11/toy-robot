@@ -26,3 +26,7 @@ in mix.exs add
 
   when making changes to the CLI must rebuild the escript
   $ mix escript.build && ./toy_robot
+  To run the script 
+  $ ./toy_robot
+  To see stand alone instructions
+  $ ./toy_robot --help
