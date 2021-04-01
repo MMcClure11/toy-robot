@@ -25,6 +25,3 @@ toy_robot-*.tar
 
 # Temporary files for e.g. tests
 /tmp
-
-# Personal Notes
-Notes.md
