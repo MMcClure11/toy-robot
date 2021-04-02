@@ -53,7 +53,6 @@ defmodule ToyRobot do
       {2, 3, :west}
 
   """
-
   def report(%ToyRobot.Position{x: x, y: y, facing: facing} = _robot) do 
     {x, y, facing}
   end
