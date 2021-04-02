@@ -104,6 +104,6 @@ process_place_params/1 : Joins the params in case there is more than one element
 - [X] add readme instructions for accessing tests
 - [X] add readme instructions for accessing docs
 - [X] add documentation to CLI of what the functions are doing
-- [X] Cannot add documentation for private methods. Interesting.
-- [] add comments to CLI for functionality of each method for personal understanding.
+- [X] cannot add documentation for private methods, interesting
+- [X] add notes for how more complex CLI functions are working
 - [] tryout github instructions for publishing documentation

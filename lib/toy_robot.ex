@@ -20,7 +20,7 @@ defmodule ToyRobot do
 
   @doc """
   Places the robot in the specified position,
-  but prevents it from being places outside of the table and from facing an invalid direction.
+  but prevents it from being placed outside of the table and from facing an invalid direction.
 
   Examples:
       iex> ToyRobot.place(1, 2, :south)
@@ -45,7 +45,7 @@ defmodule ToyRobot do
   end
 
   @doc """
-  Procides the report of the robot's current position.
+  Provides the report of the robot's current position.
 
   Examples:
       iex> {:ok, robot} = ToyRobot.place(2, 3, :west)
@@ -75,28 +75,28 @@ defmodule ToyRobot do
   end
 
   @doc """
-  Moves the robot in the specified argument direction, without permitting it to fall.
+  Moves the robot in the specified argument direction, but will not move if the movement would cause the robot to fall.
   """
   def move(%ToyRobot.Position{x: _x, y: y, facing: :north} = robot) when y < @table_top_y do 
     %ToyRobot.Position{robot | y: y + 1}
   end
 
   @doc """
-  Moves the robot to the east, without permitting it to fall.
+  Moves the robot to the east, but will not move if the movement would cause the robot to fall.
   """
   def move(%ToyRobot.Position{x: x, y: _y, facing: :east} = robot) when x < @table_top_x do
     %ToyRobot.Position{robot | x: x + 1}
   end
 
   @doc """
-  Moves the robot to the south, without permitting it to fall.
+  Moves the robot to the south, but will not move if the movement would cause the robot to fall.
   """
   def move(%ToyRobot.Position{x: _x, y: y, facing: :south} = robot) when y > 0 do 
     %ToyRobot.Position{robot | y: y - 1}
   end
 
   @doc """
-  Moves the robot to the west, without permitting it to fall.
+  Moves the robot to the west, but will not move if the movement would cause the robot to fall.
   """
   def move(%ToyRobot.Position{x: x, y: _y, facing: :west} = robot) when x > 0 do 
     %ToyRobot.Position{robot | x: x - 1}

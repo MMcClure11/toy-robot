@@ -6,7 +6,7 @@ defmodule ToyRobot.CLI do
 
   @doc """
   Receives optional argument upon starting the simulator.
-  Parses the arguments into a readable format and processes them if the arg == --help.
+  Parses the arguments into a readable format and processes them if the argument is the --help flag.
   """
   def main(args) do
     args |> parse_args |> process_args
@@ -21,7 +21,7 @@ defmodule ToyRobot.CLI do
   end
 
   @doc """
-  If main was called with a --help flag, display the message.
+  If main was called with a --help flag, display the help message.
   """
   def process_args([help: true]) do
     print_help_message()
