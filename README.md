@@ -87,6 +87,12 @@ If you make changes to a file you can run the build and start the simulator at t
 
     $ mix escript.build && ./toy_robot
 
+## Tests
+
+To run the tests:
+
+    $ mix test
+
 
 
 ## Installation
