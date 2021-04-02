@@ -93,6 +93,21 @@ To run the tests:
 
     $ mix test
 
+## Documentation
+
+To access the documentation from the application you first need to get the dependency:
+
+    $ mix deps.get
+
+Then make the docs:
+
+    $ mix docs
+
+CD into the newly made doc folder and open the html file:
+
+    $ cd doc
+    $ open index.html
+
 
 
 ## Installation

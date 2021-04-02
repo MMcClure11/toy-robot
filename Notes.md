@@ -47,7 +47,7 @@ in mix.exs add
 
   TODO
   [X] add readme instructions for accessing tests
-  [] add readme instructions for accessing docs
+  [X] add readme instructions for accessing docs
   [] add documentation to CLI of what the functions are doing
   [] add CLI tests??
   [] tryout github instructions for publishing documentation
