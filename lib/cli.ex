@@ -36,9 +36,7 @@ defmodule ToyRobot.CLI do
     receive_command()
   end
 
-  @doc """
-  Creates a map of key value pairs with the keys as the command and the value a description of the command.
-  """
+  #Creates a map of key value pairs with the keys as the command and the value a description of the command.
   @commands %{
     "quit" => "Quits the simulator",
     "place" => "format: \"place [X,Y,F]\". " <>
@@ -50,10 +48,9 @@ defmodule ToyRobot.CLI do
     "move" => "Moves the robot one position forward"
   }
 
-  @doc """
-  Listens for the user's input, once it is received it removes whitespace and transforms it into a lowercase string.
-  Splits input between command itself and attributes to separate command from specifications for placement of robot.
-  """
+  
+  #Listens for the user's input, once it is received it removes whitespace and transforms it into a lowercase string.
+  #Splits input between command itself and attributes to separate command from specifications for placement of robot.
   defp receive_command(robot \\ nil) do
     IO.gets("> ")
     |> String.trim
