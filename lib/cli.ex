@@ -1,17 +1,35 @@
 defmodule ToyRobot.CLI do
+
+  @moduledoc """
+  Documentation for `ToyRobot.CLI`.
+  """
+
+  @doc """
+  Receives optional argument upon starting the simulator.
+  Parses the arguments into a readable format and processes them if the arg == --help.
+  """
   def main(args) do
     args |> parse_args |> process_args
   end
 
+  @doc """
+  Uses the public OptionParserModule and the parse method to take in the args and a second parameter to act as a rule for turning the help flag into a boolean.
+  """
   def parse_args(args) do
     {params, _, _} =  OptionParser.parse(args, switches: [help: :boolean])
     params
   end
 
+  @doc """
+  If main was called with a --help flag, display the message.
+  """
   def process_args([help: true]) do
     print_help_message()
   end
 
+  @doc """
+  If the main was called without the --help flag, it welcomes the user, prints the help message, and prepares to receive instructions.
+  """
   def process_args(_) do
     IO.puts("Welcome to the Toy Robot simulator!")
     print_help_message()
