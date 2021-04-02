@@ -57,9 +57,9 @@ To see stand alone instructions
 
   ## TODO
 
-  [X] add readme instructions for accessing tests
-  [X] add readme instructions for accessing docs
-  [X] add documentation to CLI of what the functions are doing
-    [X] Cannot add documentation for private methods. Interesting.
-  [] add comments to CLI for functionality of each method for personal understanding.
-  [] tryout github instructions for publishing documentation
+- [X] add readme instructions for accessing tests
+- [X] add readme instructions for accessing docs
+- [X] add documentation to CLI of what the functions are doing
+- [X] Cannot add documentation for private methods. Interesting.
+- [] add comments to CLI for functionality of each method for personal understanding.
+- [] tryout github instructions for publishing documentation
