@@ -36,7 +36,6 @@ defmodule ToyRobot.CLI do
     receive_command()
   end
 
-  #Creates a map of key value pairs with the keys as the command and the value a description of the command.
   @commands %{
     "quit" => "Quits the simulator",
     "place" => "format: \"place [X,Y,F]\". " <>
