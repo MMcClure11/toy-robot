@@ -65,6 +65,19 @@ Output:
 
     3,3,NORTH
 
+## CLI
+
+If you have Elixir installed on your system, you can fork and clone this directory. 
+CD into the project directory and run 
+   $ mix escript.build 
+this builds the application to be used in the command line. 
+
+The build command uses the name of the application as the file name. To start your simulator:
+   $ ./toy_robot
+Follow the instructions in the command line or see above for how to place and move your robot.
+
+
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -81,4 +94,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/toy_robot](https://hexdocs.pm/toy_robot).
-
