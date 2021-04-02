@@ -48,6 +48,6 @@ in mix.exs add
   TODO
   [X] add readme instructions for accessing tests
   [X] add readme instructions for accessing docs
-  [] add documentation to CLI of what the functions are doing
-  [] add CLI tests??
+  [X] add documentation to CLI of what the functions are doing
+    [X] Cannot add documentation for private methods. Interesting.
   [] tryout github instructions for publishing documentation
