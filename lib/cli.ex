@@ -48,10 +48,7 @@ defmodule ToyRobot.CLI do
     "move" => "Moves the robot one position forward"
   }
 
-  
-  #Listens for the user's input, once it is received it removes whitespace and transforms it into a lowercase string.
-  #Splits input between command itself and attributes to separate command from specifications for placement of robot.
-  defp receive_command(robot \\ nil) do
+    defp receive_command(robot \\ nil) do
     IO.gets("> ")
     |> String.trim
     |> String.downcase

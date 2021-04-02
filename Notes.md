@@ -55,6 +55,19 @@ To see stand alone instructions
     $ cd doc
     $ open index.html
 
+  ## CLI Functions
+
+  receive_command/1 : Listens for the user's input, once it is received it removes whitespace and transforms it into a lowercase string.
+  Splits input between command itself and attributes to separate command from specifications for placement of robot.
+
+    defp receive_command(robot \\ nil) do
+      IO.gets("> ")
+      |> String.trim
+      |> String.downcase
+      |> String.split(" ")
+      |> execute_command(robot)
+    end
+
   ## TODO
 
 - [X] add readme instructions for accessing tests
