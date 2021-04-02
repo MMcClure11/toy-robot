@@ -5,8 +5,7 @@
   of dimensions 5 units x 5 units.
 - There are no other obstructions on the table surface.
 - The robot is free to roam around the surface of the table, but is not allowed to fall to descruction. 
-  Any movement that would result in the robot falling from the table is prevented, however further valid
-  movement commands are still allowed.
+  Any movement that would result in the robot falling from the table is prevented, however further valid movement commands are still allowed.
 
 The application can read commands of the following form:
 
@@ -69,18 +68,24 @@ Output:
 
 If you have Elixir installed on your system, you can fork and clone this directory. 
 CD into the project directory and run 
-   $ mix escript.build 
+
+    $ mix escript.build
+
 this builds the application to be used in the command line. 
 
 The build command uses the name of the application as the file name. To start your simulator:
-   $ ./toy_robot
+
+    $ ./toy_robot
+
 Follow the instructions in the command line or see above for how to place and move your robot.
 
 To just see a print out of the instructions you can run:
-   $ ./toy_robot --help
+
+    $ ./toy_robot --help
 
 If you make changes to a file you can run the build and start the simulator at the same time using:
-   $ mix escript.build && ./toy_robot
+
+    $ mix escript.build && ./toy_robot
 
 
 
