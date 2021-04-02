@@ -76,6 +76,12 @@ The build command uses the name of the application as the file name. To start yo
    $ ./toy_robot
 Follow the instructions in the command line or see above for how to place and move your robot.
 
+To just see a print out of the instructions you can run:
+   $ ./toy_robot --help
+
+If you make changes to a file you can run the build and start the simulator at the same time using:
+   $ mix escript.build && ./toy_robot
+
 
 
 ## Installation
