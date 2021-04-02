@@ -12,26 +12,36 @@ in mix.exs add
       ]
     end
 
-  --> New funciton
+  --> New function
+
     defp escript do 
       [main_module: ToyRobot.CLI]
     end
 
     $ touch lib/cli.ex
-write main function
-to compile
+
+Write the main function in ToyRobot.CLI, then to compile:
+
     $ mix escript.build
-to run the cli
+
+To run the cli.
+
     $ ./toy_robot
 
-when making changes to the CLI must rebuild the escript
+When making changes to the CLI rebuild the escript:
+
     $ mix escript.build && ./toy_robot
+
 To run the script 
+
     $ ./toy_robot
+
 To see stand alone instructions
+
     $ ./toy_robot --help
 
-To create documentation:
+**To create documentation:**
+
     defp deps do
       [
         {:ex_doc, "~> 0.12"} <--New Line
@@ -45,7 +55,8 @@ To create documentation:
     $ cd doc
     $ open index.html
 
-  TODO
+  ## TODO
+
   [X] add readme instructions for accessing tests
   [X] add readme instructions for accessing docs
   [X] add documentation to CLI of what the functions are doing
